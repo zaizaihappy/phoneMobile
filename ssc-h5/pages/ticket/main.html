@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.css" rel="stylesheet" />
+		<link href="../../fonts/iconfont.css" rel="stylesheet" >
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">兑奖</h1>
+		</header>
+		
+		<nav class="mui-bar mui-bar-tab">
+			<a class="mui-tab-item" href="../main/main.html">
+				<span class="mui-icon iconfont icon-shouye-"></span>
+				<span class="mui-tab-label">首页</span>
+			</a>
+			<a class="mui-tab-item" href="../gameLeY/main.html">
+				<span class="mui-icon iconfont icon-youxi"></span>
+				<span class="mui-tab-label">游戏乐园</span>
+			</a>
+			<a class="mui-tab-item" href="../ranking/main.html">
+				<span class="mui-icon iconfont icon-paihangbang"></span>
+				<span class="mui-tab-label">排行榜</span>
+			</a>
+			<a class="mui-tab-item mui-active" href="../ticket/main.html">
+				<span class="mui-icon iconfont icon-duijiang"></span>
+				<span class="mui-tab-label">兑奖</span>
+			</a>
+			<a class="mui-tab-item" href="../userCenter/main.html">
+				<span class="mui-icon iconfont icon-gerenzhongxin"></span>
+				<span class="mui-tab-label">个人中心</span>
+			</a>
+		</nav>
+		<script src="../../js/mui.js"></script>
+		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+			mui('.mui-bar-tab').on('tap', 'a', function(e) {
+				var targetTab = this.getAttribute('href');
+				mui.openWindow({url:targetTab,extras:{id:'100'}});
+			});
+		</script>
+	</body>
+
+</html>
