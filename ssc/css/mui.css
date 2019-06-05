@@ -286,7 +286,7 @@ body
     line-height: 21px;
 
     color: #000;
-    background-color: #efeff4;
+    /* background-color: #efeff4; */
 
     -webkit-overflow-scrolling: touch;
 }
@@ -3037,7 +3037,7 @@ select:focus
 
     float: left;
 
-    width: 35%;
+    width: 15%;
     padding: 11px 15px;
 }
 
@@ -3045,7 +3045,7 @@ select:focus
 {
     float: right;
 
-    width: 65%;
+    width: 85%;
     margin-bottom: 0;
     padding-left: 0;
 
