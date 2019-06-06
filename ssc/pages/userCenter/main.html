@@ -1,22 +1,42 @@
 <!doctype html>
 <html>
 
-	<head>
-		<meta charset="utf-8">
-		<title></title>
-		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<link href="../../css/mui.css" rel="stylesheet" />
-	</head>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<link href="../../css/mui.css" rel="stylesheet" />
+</head>
 
-	<body>
-		<header class="mui-bar mui-bar-nav">
-			<h1 class="mui-title">个人中心</h1>
-		</header>
-		<script src="../../js/mui.js"></script>
-		<script src="../../js/mui.min.js"></script>
-		<script type="text/javascript">
-			mui.init();
-		</script>
-	</body>
+<body>
+	<header class="mui-bar mui-bar-nav">
+		<h1 class="mui-title">个人中心</h1>
+	</header>
+	<div class="mui-content">
+		<button id="login" type="button" class="mui-btn mui-btn-primary">登录</button>
+	</div>
+	<script src="../../js/mui.js"></script>
+	<script src="../../js/mui.min.js"></script>
+	<script type="text/javascript">
+		mui.init();
+		login.addEventListener("click", function(e) {
+			var aniShow = mui.os.plus ? "slide-in-right" : "zoom-fade-out";
+			mui.openWindow({
+				url: "../other/login.html",
+				id: "info",
+				styles: {
+					popGesture: "close",
+					statusbar: {
+						background: "#f7f7f7"
+					}
+				},
+				show: {
+					aniShow: aniShow,
+					duration: 300
+				}
+			});
+		})
+	</script>
+</body>
 
 </html>
