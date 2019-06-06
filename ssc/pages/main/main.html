@@ -47,14 +47,30 @@
 			</div>
 		</div>
 	</div>
-	<script src="../../js/mui.min.js"></script>
+	<script src="../../js/mui.js"></script>
 	<script src="../../js/public.js"></script>
-	<script src="https://vuejs.org/js/vue.js"></script>
+	<script src="../../js/vue.js"></script>
 	<script type="text/javascript">
+		mui.ajax({ 
+			url: BASE_URL + 'player/plam/banner/getBannerList', 
+			type: 'post', 
+			headers: { 
+				'Content-Type': 'application/json' 
+			}, 
+			crossDomain:true,
+			processData: false, 
+			data: JSON.stringify({ 
+				name: 'dcloud', 
+				password: '123456' 
+			}), 
+			success: function(data) { 
+				console.log(data); 
+			}, 
+			error: function(xhr, type, errorThrown) { 
+				console.log(type); 
+			} 
+		}); 
 		mui.init();
-		mui.plusReady(function() {
-			plus.navigator.setStatusBarBackground("#000000");
-		});
 		var dataModule = new Vue({
 			el: '#app',
 			data:{
@@ -69,7 +85,7 @@
 				});
 			},
 			mounted: function() {
-				mui.post(BASE_URL + "/player/plam/banner/getBannerList",function(data){
+				mui.post(BASE_URL + 'player/plam/banner/getBannerList',function(data){
 					dataModule.bannerList = data.module;
 					dataModule.bannerfirstData = data.module[0];
 					dataModule.bannerLastData = data.module[data.module.length-1];
