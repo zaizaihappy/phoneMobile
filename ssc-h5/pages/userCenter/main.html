@@ -116,8 +116,10 @@
 		</nav>
 		<script src="../../js/mui.js"></script>
 		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/public.js"></script>
 		<script type="text/javascript">
 			mui.init();
+			getUserInfo();
 			//禁止界面元素晃动
 			document.getElementsByClassName("mui-content")[0].ontouchmove = function (e) {e.preventDefault();};	
 			mui('.mui-bar-tab').on('tap', 'a', function(e) {
