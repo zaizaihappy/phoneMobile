@@ -1,19 +1,86 @@
 <!doctype html>
 <html>
-
 	<head>
 		<meta charset="utf-8">
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../../css/mui.css" rel="stylesheet" />
-		<link href="../../fonts/iconfont.css" rel="stylesheet" >
+		<link href="../../fonts/iconfont.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../css/icons-extra.css" />
+		<style>
+			.mui-bar-title{
+				position: fixed;
+				z-index: 10;
+				right: 0;
+				left: 0;
+				height: 44px;
+				padding-right: 10px;
+				padding-left: 10px;
+				border-bottom: 0;
+				-webkit-backface-visibility: hidden;
+				backface-visibility: hidden;
+			}
+			.mui-title-style {
+				font-size: 17px;
+				line-height: 44px;
+				position: absolute;
+				display: block;
+				width: 100%;
+				margin: 0 -10px;
+				padding: 0;
+				text-align: center;
+				white-space: nowrap;
+				color: white;
+			}
+			.title-content {
+				margin: 15px;
+				border-radius: 15px;
+				background: white;
+				padding: 8px;
+				position: relative;
+				margin-top: -45%;
+			}
+			.text-style-1{
+				font-size: 17px;
+			}
+			.text-style-2{
+				font-size: 40px;
+			}
+		</style>
 	</head>
 
 	<body>
-		<header class="mui-bar mui-bar-nav">
-			<h1 class="mui-title">个人中心</h1>
+		<header class="mui-bar-title">
+			<h1 class="mui-title-style">个人中心</h1>
 		</header>
-		
+		<div class="mui-content">
+			<img src="../../images/user_center_background.jpg" width="100%" />
+			<div class="title-content">
+				<span class="mui-icon mui-icon-contact text-style-2"></span>
+				<span style="display: inline-block;width: 85%;">
+					<span id="userName">用户名</span>
+					<span id="amount" class="mui-pull-right">总金额：0.0</span>
+				</span>
+				<ul class="mui-table-view mui-grid-view mui-grid-9">
+					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+							<span class="mui-icon mui-icon-extra mui-icon-extra-prech"></span>
+							<div class="mui-media-body">安全设置</div>
+						</a></li>
+					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+							<span class="mui-icon mui-icon-extra mui-icon-extra-class"></span>
+							<div class="mui-media-body">账号设置</div>
+						</a></li>
+					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+							<span class="mui-icon mui-icon-extra mui-icon-extra-classroom"><span class="mui-badge">5</span></span>
+							<div class="mui-media-body">公告</div>
+						</a></li>
+					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+							<span class="mui-icon mui-icon-extra mui-icon-extra-dictionary"></span>
+							<div class="mui-media-body">其他</div>
+						</a></li>
+				</ul>
+			</div>
+		</div>
 		<nav class="mui-bar mui-bar-tab">
 			<a class="mui-tab-item" href="../main/main.html">
 				<span class="mui-icon iconfont icon-shouye-"></span>
@@ -42,7 +109,12 @@
 			mui.init();
 			mui('.mui-bar-tab').on('tap', 'a', function(e) {
 				var targetTab = this.getAttribute('href');
-				mui.openWindow({url:targetTab,extras:{id:'100'}});
+				mui.openWindow({
+					url: targetTab,
+					extras: {
+						id: '100'
+					}
+				});
 			});
 		</script>
 	</body>

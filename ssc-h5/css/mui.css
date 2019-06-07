@@ -1479,8 +1479,8 @@ input[type='submit']:enabled:active, input[type='submit'].mui-active:enabled,
 
     border-bottom: 0;
     background-color: #f7f7f7;
-    -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, .85);
-            box-shadow: 0 0 1px rgba(0, 0, 0, .85);
+    /* -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, .85);
+            box-shadow: 0 0 1px rgba(0, 0, 0, .85); */
 
     -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
@@ -2750,9 +2750,8 @@ input[type='submit']:enabled:active, input[type='submit'].mui-active:enabled,
     margin: 0;
     padding: 0;
 
-    border-top: 1px solid #eee;
-    border-left: 1px solid #eee;
-    background-color: #f2f2f2;
+    /* border-top: 1px solid #eee;
+    border-left: 1px solid #eee; */
 }
 .mui-grid-view.mui-grid-9:before, .mui-grid-view.mui-grid-9:after
 {
@@ -2775,8 +2774,8 @@ input[type='submit']:enabled:active, input[type='submit'].mui-active:enabled,
 
     vertical-align: top;
 
-    border-right: 1px solid #eee;
-    border-bottom: 1px solid #eee;
+    /* border-right: 1px solid #eee;
+    border-bottom: 1px solid #eee; */
 }
 .mui-grid-view.mui-grid-9 .mui-table-view-cell.mui-active
 {

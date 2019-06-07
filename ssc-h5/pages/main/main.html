@@ -4,14 +4,52 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
     <title></title>
-    <script src="../../js/mui.min.js"></script>
 	<link rel="stylesheet" href="../../fonts/iconfont.css">
-    <link href="../../css/mui.min.css" rel="stylesheet"/>
+    <link href="../../css/mui.css" rel="stylesheet"/>
+    <script src="../../js/mui.min.js"></script>
+	<script src="../../js/public.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script type="text/javascript" charset="utf-8">
       	mui.init();
     </script>
 </head>
 <body>
+	<div class="mui-content">
+		<div id="slider" class="mui-slider">
+			<div class="mui-slider-group mui-slider-loop">
+				<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+				<div class="mui-slider-item mui-slider-item-duplicate">
+					<a href="javascript:return false;">
+						<img :src="bannerLastData.bannerUrl" />
+						<!-- <p class="mui-slider-title">{{bannerLastData.bannerLinks}}</p> -->
+					</a>
+				</div>
+				<div v-for="(banner,index) in bannerList" class="mui-slider-item">
+					<a href="javascript:return false;">
+						<img :src="banner.bannerUrl" />
+						<!-- <p class="mui-slider-title">{{banner.bannerLinks}}</p> -->
+					</a>
+				</div>
+				<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+				<div class="mui-slider-item mui-slider-item-duplicate">
+					<a href="javascript:return false;">
+						<img :src="bannerfirstData.bannerUrl" />
+						<!-- <p class="mui-slider-title">{{bannerfirstData.bannerLinks}}</p> -->
+					</a>
+				</div>
+			</div>
+			<div class="mui-slider-indicator mui-text-right">
+				<template v-for="(banner,index) in bannerList">
+					<template v-if="index === 0">
+						<div class="mui-indicator mui-active"></div>
+					</template>
+					<template v-else>
+						<div class="mui-indicator"></div>
+					</template>
+				</template>
+			</div>
+		</div>
+	</div>
 	<nav class="mui-bar mui-bar-tab">
 		<a class="mui-tab-item mui-active" href="../main/main.html">
 			<span class="mui-icon iconfont icon-shouye-"></span>
@@ -36,6 +74,35 @@
 	</nav>
 	
 	<script type="text/javascript" charset="utf-8">
+		var dataModule = new Vue({
+			el: '#slider',
+			data:{
+				bannerList:[],
+				bannerfirstData:{},
+				bannerLastData:{},
+			},
+			updated:function(){
+				var slider = mui("#slider");
+				slider.slider({
+					interval: 2000
+				});
+			},
+			mounted: function() {
+				
+			},
+			created() {
+				this.getApiData()
+			},
+			methods: {
+				getApiData:function() {
+					mui.post(BASE_URL + 'player/plam/banner/getBannerList',function(data){
+						dataModule.bannerList = data.module;
+						dataModule.bannerfirstData = data.module[0];
+						dataModule.bannerLastData = data.module[data.module.length-1];
+					})
+				}
+			}
+		})
 		mui('.mui-bar-tab').on('tap', 'a', function(e) {
 			var targetTab = this.getAttribute('href');
 			mui.openWindow({
