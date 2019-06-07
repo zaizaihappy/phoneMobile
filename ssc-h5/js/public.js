@@ -11,19 +11,22 @@ function getUserInfo(){
 		return userinfo;
 	}else{
 		var aniShow = mui.os.plus ? "slide-in-right" : "zoom-fade-out";
-		mui.openWindow({
-			url: "../other/login.html",
-			id: "info",
-			styles: {
-				popGesture: "close",
-				statusbar: {
-					background: "#f7f7f7"
+		mui.toast("请登录后查看")
+		setTimeout(function(){
+			mui.openWindow({
+				url: "../other/login.html",
+				id: "info",
+				styles: {
+					popGesture: "close",
+					statusbar: {
+						background: "#f7f7f7"
+					}
+				},
+				show: {
+					aniShow: aniShow,
+					duration: 300
 				}
-			},
-			show: {
-				aniShow: aniShow,
-				duration: 300
-			}
-		});
+			});
+		},1500)
 	}
 }
