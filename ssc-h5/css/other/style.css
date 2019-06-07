@@ -8,8 +8,12 @@ canvas{
   display:block;
   vertical-align:bottom;
 }
-#errorMsg{
+.error-msg-style{
 	color: #FF5053;
+	font-weight: bold;
+}
+.success-msg-style{
+	color: #2AC845;
 	font-weight: bold;
 }
 .count-particles{

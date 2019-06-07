@@ -28,7 +28,7 @@
 					<div class="login-center-input">
 						<input id="password" type="password" name=""value="" placeholder="请输入您的密码" />
 						<div class="login-center-input-text">密码</div>
-						<span id="errorMsg"></span>
+						<span id="errorMsg" class="error-msg-style"></span>
 					</div>
 				</div>
 				<div class="login-button">
@@ -69,6 +69,7 @@
 				if(username == "" || password == ""){
 					mui('#errorMsg')[0].innerHTML = "用户名或密码不能为空";
 				}else{
+					mui('#errorMsg')[0].innerHTML = "";
 					addClass(document.querySelector(".login"), "active")
 					setTimeout(function(){
 						addClass(document.querySelector(".sk-rotating-plane"), "active")
@@ -84,7 +85,9 @@
 							amount:20.00
 						}
 						sessionStorage.setItem("userInfo",userInfo)
-						mui.toast('欢迎您的到来！');
+						mui('#errorMsg')[0].className = "success-msg-style";
+						mui('#errorMsg')[0].innerHTML = "欢迎您的到来！";
+						mui.toast('欢迎您的到来');
 						setTimeout(function(){
 							var aniShow = mui.os.plus ? "slide-in-right" : "zoom-fade-out";
 							mui.openWindow({
@@ -102,13 +105,20 @@
 								}
 							});
 						},1000)
-					},5000)
+					},2000)
 					// mui.post("",{username:username,password:password},function(data){
 					// 	if(data.success){
 					// 		removeClass(document.querySelector(".login"), "active")
 					// 		removeClass(document.querySelector(".sk-rotating-plane"), "active")
 					// 		document.querySelector(".login").style.display = "block"
-					// 		mui.toast('欢迎您的到来！');
+					// 		var userInfo = {
+					// 			username:'admin',
+					// 			amount:20.00
+					// 		}
+					// 		sessionStorage.setItem("userInfo",userInfo)
+					// 		mui('#errorMsg')[0].className = "success-msg-style";
+					// 		mui('#errorMsg')[0].innerHTML = "欢迎您的到来！";
+					// 		mui.toast('欢迎您的到来');
 					// 		setTimeout(function(){
 					// 			var aniShow = mui.os.plus ? "slide-in-right" : "zoom-fade-out";
 					// 			mui.openWindow({
@@ -126,7 +136,7 @@
 					// 				}
 					// 			});
 					// 		},1000)
-					// 	}else{
+					// // 	}else{
 					// 		mui('#errorMsg')[0].innerHTML = data.errorMsg;
 					// 	}
 					// })
