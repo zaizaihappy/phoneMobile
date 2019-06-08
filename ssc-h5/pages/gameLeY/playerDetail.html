@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<link rel="stylesheet" href="../../css/gameLeY/playerDetail.css">
+	</head>
+
+	<body>
+		<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable mui-slide-in">
+			<!--侧滑菜单部分-->
+			<aside id="offCanvasSide" class="mui-off-canvas-left">
+				<div id="offCanvasSideScroll" class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<template v-for="(player,index) in playerNameList">
+							<div>
+								<button style="width: 35%;border: 0px;">晚饭系列</button>
+								<button style="width: 62%;border: 0px;">——————————————</button>
+							</div>
+							<div align="center">
+								<template v-for="(play,index) in player.playerList">
+									<button class="btn-kuang-style">{{play.player}}</button>
+								</template>
+							</div>
+						</template>
+					</div>
+				</div>
+			</aside>
+			<!--主界面部分-->
+			<div class="mui-inner-wrap">
+				<header class="mui-bar mui-bar-nav">
+					<a href="#offCanvasSide" class="mui-icon mui-action-menu mui-icon-bars mui-pull-left"></a>
+					<a class="mui-action-back mui-btn mui-btn-link mui-pull-right"></a>
+					<h1 class="mui-title">玩法名称</h1>
+				</header>
+				<div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+					<div style="position: absolute;z-index: 2;width: 100%;">
+						<ul class="mui-table-view">
+							 <li class="mui-table-view-cell">25325412期</li>
+						     <li class="mui-table-view-cell" style="text-align: center;">
+								 <span style="float: left;">25369874期</span>
+								 <span>封盘：00:30</span>
+								 <span style="float: right;">开奖：45</span>
+							 </li>
+						</ul>
+					</div>
+					<div class="mui-content mui-row mui-fullscreen" style="padding-top: 130px;">
+						<div class="mui-col-xs-3">
+							<div id="segmentedControls" class="mui-segmented-control mui-segmented-control-inverted mui-segmented-control-vertical">
+								<a class="mui-control-item mui-active" href="#content1">选项1</a>
+								<a class="mui-control-item" href="#content2">选项2</a>
+							</div>
+						</div>
+						<div id="segmentedControlContents" class="mui-col-xs-9" style="border-left: 1px solid #c8c7cc;">
+							<div id="content1" class="mui-control-content mui-active">
+								<ul class="mui-table-view">
+									<li class="mui-table-view-cell mui-collapse li-style-wanfa mui-active">
+										<a class="mui-navigate-right" href="#">表单</a>
+										<div class="mui-collapse-content">
+											<div class="xiazhu-style">总和大1.995</div>
+											<div class="xiazhu-style">总和大1.995</div>
+											<div class="xiazhu-style">总和大1.995</div>
+											<div class="xiazhu-style">总和大1.995</div>
+											<div class="xiazhu-style">总和大1.995</div>
+											<div class="xiazhu-style">总和大1.995</div>
+											<div class="xiazhu-style">总和大1.995</div>
+											<div class="xiazhu-style">总和大1.995</div>
+										</div>
+									</li>
+									<li class="mui-table-view-cell mui-collapse li-style-wanfa mui-active">
+										<a class="mui-navigate-right" href="#">表单</a>
+										<div class="mui-collapse-content">
+											<div class="xiazhu-style">总和大1.995</div>
+											<div class="xiazhu-style">总和大1.995</div>
+											<div class="xiazhu-style">总和大1.995</div>
+											<div class="xiazhu-style">总和大1.995</div>
+											<div class="xiazhu-style">总和大1.995</div>
+											<div class="xiazhu-style">总和大1.995</div>
+											<div class="xiazhu-style">总和大1.995</div>
+											<div class="xiazhu-style">总和大1.995</div>
+										</div>
+									</li>
+									<li class="mui-table-view-cell mui-collapse li-style-wanfa mui-active">
+										<a class="mui-navigate-right" href="#">表单</a>
+										<div class="mui-collapse-content">
+											<div class="xiazhu-style">总和大1.995</div>
+											<div class="xiazhu-style">总和大1.995</div>
+											<div class="xiazhu-style">总和大1.995</div>
+											<div class="xiazhu-style">总和大1.995</div>
+											<div class="xiazhu-style">总和大1.995</div>
+											<div class="xiazhu-style">总和大1.995</div>
+											<div class="xiazhu-style">总和大1.995</div>
+											<div class="xiazhu-style">总和大1.995</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<div id="content2" class="mui-control-content">
+								<ul class="mui-table-view">
+
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- off-canvas backdrop -->
+				<div class="mui-off-canvas-backdrop"></div>
+			</div>
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+		<script src="../../js/gameLeY/playerDetail.js"></script>
+	</body>
+
+</html>

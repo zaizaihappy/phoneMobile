@@ -4,7 +4,7 @@ mui.plusReady(function() {
 	plus.navigator.setStatusBarBackground("#000000");
 });
 //禁止界面晃动
-document.getElementsByClassName("mui-content")[0].ontouchmove = function (e) {e.preventDefault();};
+// document.getElementsByClassName("mui-content")[0].ontouchmove = function (e) {e.preventDefault();};
 var aniShow = mui.os.plus ? "slide-in-right" : "zoom-fade-out";
 //判断当前是否登录
 function getUserInfo(){

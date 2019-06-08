@@ -6,13 +6,38 @@
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../../css/mui.css" rel="stylesheet" />
-		<link href="../../fonts/iconfont.css" rel="stylesheet" >
+		<link href="../../fonts/iconfont.css" rel="stylesheet">
+		<style>
+			.mui-media{
+				padding: 0px !important;
+				font-size: 13px !important;
+			}
+			.mui-content{
+				padding-bottom: 50px !important;
+			}
+		</style>
 	</head>
 
 	<body>
 		<header class="mui-bar mui-bar-nav">
 			<h1 class="mui-title">游戏乐园</h1>
 		</header>
+		<div id="listData" class="mui-content">
+			<template v-for="(player,index) in playerNameList">
+				<div class="mui-card">
+					<div class="mui-card-header">{{player.playersName}}</div>
+					<div class="mui-card-content">
+						<ul class="mui-table-view mui-grid-view mui-grid-9">
+							<li v-for="(play,index) in player.playerList" :data-type="play.player" class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+								<a href="#">
+									<div >{{play.player}}</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</template>
+		</div>
 		<nav class="mui-bar mui-bar-tab">
 			<a class="mui-tab-item" href="../main/main.html">
 				<span class="mui-icon iconfont icon-shouye-"></span>
@@ -38,7 +63,48 @@
 		<script src="../../js/mui.js"></script>
 		<script src="../../js/mui.min.js"></script>
 		<script src="../../js/public.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 		<script type="text/javascript">
+			var jsonPlayer = [{"playersName":"玩法类目","playerList":[{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"}]},{"playersName":"玩法类目","playerList":[{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"}]},{"playersName":"玩法类目","playerList":[{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"}]},{"playersName":"玩法类目","playerList":[{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"}]},{"playersName":"玩法类目","playerList":[{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"}]},{"playersName":"玩法类目","playerList":[{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"}]},{"playersName":"玩法类目","playerList":[{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"}]},{"playersName":"玩法类目","playerList":[{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"}]},{"playersName":"玩法类目","playerList":[{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"}]}];
+			var app = new Vue({
+				el: '#listData',
+				data:{
+					playerNameList:[]
+				},
+				updated:function(){
+					
+				},
+				mounted: function() {
+					
+				},
+				created() {
+					var _this = this;
+					_this.playerNameList = jsonPlayer
+				},
+				methods: {
+					
+				}
+			})
+			
+			mui('.mui-content').on('tap', '.mui-col-xs-4', function(e) {
+				var type = this.getAttribute("data-type");
+				mui.openWindow({
+					url: "playerDetail.html",
+					extras: {
+						id: '100'
+					},
+					styles: {
+						popGesture: "close",
+						statusbar: {
+							background: "#f7f7f7"
+						}
+					},
+					show: {
+						aniShow: aniShow,
+						duration: 300
+					}
+				});
+			})
 		</script>
 	</body>
 

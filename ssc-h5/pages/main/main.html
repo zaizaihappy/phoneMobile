@@ -1,105 +1,107 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-    <title></title>
-	<link rel="stylesheet" href="../../fonts/iconfont.css">
-    <link href="../../css/mui.css" rel="stylesheet"/>
-</head>
-<body>
-	<div class="mui-content">
-		<div id="slider" class="mui-slider">
-			<div class="mui-slider-group mui-slider-loop">
-				<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
-				<div class="mui-slider-item mui-slider-item-duplicate">
-					<a href="javascript:return false;">
-						<img :src="bannerLastData.bannerUrl" />
-						<!-- <p class="mui-slider-title">{{bannerLastData.bannerLinks}}</p> -->
-					</a>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" href="../../fonts/iconfont.css">
+		<link href="../../css/mui.css" rel="stylesheet" />
+		<style>
+		</style>
+	</head>
+	<body>
+		<div class="mui-content">
+			<div id="slider" class="mui-slider">
+				<div class="mui-slider-group mui-slider-loop">
+					<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="javascript:return false;">
+							<img :src="bannerLastData.bannerUrl" />
+							<!-- <p class="mui-slider-title">{{bannerLastData.bannerLinks}}</p> -->
+						</a>
+					</div>
+					<div v-for="(banner,index) in bannerList" class="mui-slider-item">
+						<a href="javascript:return false;">
+							<img :src="banner.bannerUrl" />
+							<!-- <p class="mui-slider-title">{{banner.bannerLinks}}</p> -->
+						</a>
+					</div>
+					<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="javascript:return false;">
+							<img :src="bannerfirstData.bannerUrl" />
+							<!-- <p class="mui-slider-title">{{bannerfirstData.bannerLinks}}</p> -->
+						</a>
+					</div>
 				</div>
-				<div v-for="(banner,index) in bannerList" class="mui-slider-item">
-					<a href="javascript:return false;">
-						<img :src="banner.bannerUrl" />
-						<!-- <p class="mui-slider-title">{{banner.bannerLinks}}</p> -->
-					</a>
-				</div>
-				<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
-				<div class="mui-slider-item mui-slider-item-duplicate">
-					<a href="javascript:return false;">
-						<img :src="bannerfirstData.bannerUrl" />
-						<!-- <p class="mui-slider-title">{{bannerfirstData.bannerLinks}}</p> -->
-					</a>
-				</div>
-			</div>
-			<div class="mui-slider-indicator mui-text-right">
-				<template v-for="(banner,index) in bannerList">
-					<template v-if="index === 0">
-						<div class="mui-indicator mui-active"></div>
+				<div class="mui-slider-indicator mui-text-right">
+					<template v-for="(banner,index) in bannerList">
+						<template v-if="index === 0">
+							<div class="mui-indicator mui-active"></div>
+						</template>
+						<template v-else>
+							<div class="mui-indicator"></div>
+						</template>
 					</template>
-					<template v-else>
-						<div class="mui-indicator"></div>
-					</template>
-				</template>
+				</div>
 			</div>
 		</div>
-	</div>
-	<nav class="mui-bar mui-bar-tab">
-		<a class="mui-tab-item mui-active" href="../main/main.html">
-			<span class="mui-icon iconfont icon-shouye-"></span>
-			<span class="mui-tab-label">首页</span>
-		</a>
-		<a class="mui-tab-item" href="../gameLeY/main.html">
-			<span class="mui-icon iconfont icon-youxi"></span>
-			<span class="mui-tab-label">游戏乐园</span>
-		</a>
-		<a class="mui-tab-item" href="../ranking/main.html">
-			<span class="mui-icon iconfont icon-paihangbang"></span>
-			<span class="mui-tab-label">排行榜</span>
-		</a>
-		<a class="mui-tab-item" href="../ticket/main.html">
-			<span class="mui-icon iconfont icon-duijiang"></span>
-			<span class="mui-tab-label">兑奖</span>
-		</a>
-		<a class="mui-tab-item" href="../userCenter/main.html">
-			<span class="mui-icon iconfont icon-gerenzhongxin"></span>
-			<span class="mui-tab-label">个人中心</span>
-		</a>
-	</nav>
-	<script src="../../js/mui.js"></script>
-	<script src="../../js/mui.min.js"></script>
-	<script src="../../js/public.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
-	<script type="text/javascript" charset="utf-8">
-		var dataModule = new Vue({
-			el: '#slider',
-			data:{
-				bannerList:[],
-				bannerfirstData:{},
-				bannerLastData:{},
-			},
-			updated:function(){
-				var slider = mui("#slider");
-				slider.slider({
-					interval: 2000
-				});
-			},
-			mounted: function() {
-				
-			},
-			created() {
-				this.getApiData()
-			},
-			methods: {
-				getApiData:function() {
-					mui.post(BASE_URL + 'player/plam/banner/getBannerList',function(data){
-						dataModule.bannerList = data.module;
-						dataModule.bannerfirstData = data.module[0];
-						dataModule.bannerLastData = data.module[data.module.length-1];
-					})
+		<nav class="mui-bar mui-bar-tab">
+			<a class="mui-tab-item mui-active" href="../main/main.html">
+				<span class="mui-icon iconfont icon-shouye-"></span>
+				<span class="mui-tab-label">首页</span>
+			</a>
+			<a class="mui-tab-item" href="../gameLeY/main.html">
+				<span class="mui-icon iconfont icon-youxi"></span>
+				<span class="mui-tab-label">游戏乐园</span>
+			</a>
+			<a class="mui-tab-item" href="../ranking/main.html">
+				<span class="mui-icon iconfont icon-paihangbang"></span>
+				<span class="mui-tab-label">排行榜</span>
+			</a>
+			<a class="mui-tab-item" href="../ticket/main.html">
+				<span class="mui-icon iconfont icon-duijiang"></span>
+				<span class="mui-tab-label">兑奖</span>
+			</a>
+			<a class="mui-tab-item" href="../userCenter/main.html">
+				<span class="mui-icon iconfont icon-gerenzhongxin"></span>
+				<span class="mui-tab-label">个人中心</span>
+			</a>
+		</nav>
+		<script src="../../js/mui.js"></script>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/public.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+		<script type="text/javascript" charset="utf-8">
+			var dataModule = new Vue({
+				el: '#slider',
+				data: {
+					bannerList: [],
+					bannerfirstData: {},
+					bannerLastData: {},
+				},
+				updated: function() {
+					var slider = mui("#slider");
+					slider.slider({
+						interval: 2000
+					});
+				},
+				mounted: function() {
+
+				},
+				created() {
+					this.getApiData()
+				},
+				methods: {
+					getApiData: function() {
+						mui.post(BASE_URL + 'player/plam/banner/getBannerList', function(data) {
+							dataModule.bannerList = data.module;
+							dataModule.bannerfirstData = data.module[0];
+							dataModule.bannerLastData = data.module[data.module.length - 1];
+						})
+					}
 				}
-			}
-		})
-	</script>
-</body>
+			})
+		</script>
+	</body>
 </html>
