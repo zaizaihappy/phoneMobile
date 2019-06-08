@@ -1,0 +1,38 @@
+.mui-bar-title{
+	position: fixed;
+	z-index: 10;
+	right: 0;
+	left: 0;
+	height: 44px;
+	padding-right: 10px;
+	padding-left: 10px;
+	border-bottom: 0;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+.mui-title-style {
+	font-size: 17px;
+	line-height: 44px;
+	position: absolute;
+	display: block;
+	width: 100%;
+	margin: 0 -10px;
+	padding: 0;
+	text-align: center;
+	white-space: nowrap;
+	color: white;
+}
+.title-content {
+	margin: 10px;
+	border-radius: 15px;
+	background: white;
+	padding: 8px;
+	position: relative;
+	margin-top: -35%;
+}
+.text-style-1{
+	font-size: 17px;
+}
+.text-style-2{
+	font-size: 40px;
+}

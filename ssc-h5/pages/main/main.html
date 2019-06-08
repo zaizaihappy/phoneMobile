@@ -6,12 +6,6 @@
     <title></title>
 	<link rel="stylesheet" href="../../fonts/iconfont.css">
     <link href="../../css/mui.css" rel="stylesheet"/>
-    <script src="../../js/mui.min.js"></script>
-	<script src="../../js/public.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
-    <script type="text/javascript" charset="utf-8">
-      	mui.init();
-    </script>
 </head>
 <body>
 	<div class="mui-content">
@@ -72,7 +66,10 @@
 			<span class="mui-tab-label">个人中心</span>
 		</a>
 	</nav>
-	
+	<script src="../../js/mui.js"></script>
+	<script src="../../js/mui.min.js"></script>
+	<script src="../../js/public.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 	<script type="text/javascript" charset="utf-8">
 		var dataModule = new Vue({
 			el: '#slider',
@@ -103,13 +100,6 @@
 				}
 			}
 		})
-		mui('.mui-bar-tab').on('tap', 'a', function(e) {
-			var targetTab = this.getAttribute('href');
-			mui.openWindow({
-				url:targetTab,
-				extras:{id:'100'}
-			});
-		});
 	</script>
 </body>
 </html>
