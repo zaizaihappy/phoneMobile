@@ -73,7 +73,7 @@ input {
 	font-weight: bold;
 	float: right;
 	font-size: 40px !important;
-	margin-left: 5px !important;
+	/* margin-left: -5px !important; */
 }
 .mui-table-view-cell.mui-collapse .mui-collapse-content {
     margin: 11px -8px -6px !important;
