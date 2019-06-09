@@ -21,22 +21,5 @@ var app = new Vue({
 
 mui('.mui-content').on('tap', '.mui-col-xs-4', function(e) {
 	var type = this.getAttribute("data-type");
-	mui.openWindow({
-		url: "playerDetail.html",
-		styles: {
-			popGesture: "close",
-			statusbar: {
-				background: "#f7f7f7"
-			}
-		},
-		show: {
-			aniShow: aniShow,
-			duration: 300
-		}
-	});
-})
-
-//公用返回按钮
-backBtn.addEventListener('tap', function() {
-	mui.back();
+	goUrlPage("playerDetail.html");
 })

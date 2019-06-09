@@ -50,6 +50,48 @@ mui('.mui-bar-tab').on('tap', 'a', function(e) {
 	});
 });
 
-function btnClick(){
-	window.history.back(-1)
+/**
+ * 判断当前用户是否登录
+ * 未登录返回false   登录返回用户信息
+ */
+function isTrueLogin(){
+	var userinfo = sessionStorage.getItem("userInfo");
+	if(userinfo){
+		return userinfo;
+	}else{
+		return false;
+	}
+}
+
+/**
+ * 公用返回按钮
+ * 想要使用此功能
+ * 1.在html中定义一个元素的id="backBtn"就可以使用
+ * 2.引用public.js
+ */
+if(mui("#backBtn")[0] != null){
+	backBtn.addEventListener('tap', function() {
+		mui.back();
+	})
+}
+
+/**
+ * 公用跳转界面
+ * 1.引用public.js
+ * 2.跳转界面是直接调用goUrlPage("跳转界面的url");
+ */
+function goUrlPage(url){
+	mui.openWindow({
+		url: url,
+		styles: {
+			popGesture: "close",
+			statusbar: {
+				background: "#f7f7f7"
+			}
+		},
+		show: {
+			aniShow: aniShow,
+			duration: 300
+		}
+	});
 }

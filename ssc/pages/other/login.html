@@ -84,26 +84,13 @@
 							username:'admin',
 							amount:20.00
 						}
-						sessionStorage.setItem("userInfo",userInfo)
+						sessionStorage.setItem("userInfos",JSON.stringify(userInfo))
 						mui('#errorMsg')[0].className = "success-msg-style";
 						mui('#errorMsg')[0].innerHTML = "欢迎您的到来！";
 						mui.toast('欢迎您的到来');
 						setTimeout(function(){
 							var aniShow = mui.os.plus ? "slide-in-right" : "zoom-fade-out";
-							mui.openWindow({
-								url: "../userCenter/main.html",
-								id: "userCenterMain",
-								styles: {
-									popGesture: "close",
-									statusbar: {
-										background: "#f7f7f7"
-									}
-								},
-								show: {
-									aniShow: aniShow,
-									duration: 300
-								}
-							});
+							mui.back();
 						},1000)
 					},2000)
 					// mui.post("",{username:username,password:password},function(data){
