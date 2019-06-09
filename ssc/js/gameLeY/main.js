@@ -23,9 +23,6 @@ mui('.mui-content').on('tap', '.mui-col-xs-4', function(e) {
 	var type = this.getAttribute("data-type");
 	mui.openWindow({
 		url: "playerDetail.html",
-		extras: {
-			id: '100'
-		},
 		styles: {
 			popGesture: "close",
 			statusbar: {

@@ -37,9 +37,6 @@ mui('.mui-bar-tab').on('tap', 'a', function(e) {
 	var targetTab = this.getAttribute('href');
 	mui.openWindow({
 		url: targetTab,
-		extras: {
-			id: '100'
-		},
 		styles: {
 			popGesture: "close",
 			statusbar: {

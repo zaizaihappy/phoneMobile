@@ -31,3 +31,9 @@ function getUserInfo(){
 		},1500)
 	}
 }
+alert(mui("#backBtn")[0])
+if(mui("#backBtn")[0] != null){
+	backBtn.addEventListener('tap', function() {
+		mui.back();
+	})
+}

@@ -23,9 +23,6 @@ mui('.mui-content').on('tap', '.mui-col-xs-4', function(e) {
 	var type = this.getAttribute("data-type");
 	mui.openWindow({
 		url: "playerDetail.html",
-		extras: {
-			id: '100'
-		},
 		styles: {
 			popGesture: "close",
 			statusbar: {
@@ -37,4 +34,9 @@ mui('.mui-content').on('tap', '.mui-col-xs-4', function(e) {
 			duration: 300
 		}
 	});
+})
+
+//公用返回按钮
+backBtn.addEventListener('tap', function() {
+	mui.back();
 })
