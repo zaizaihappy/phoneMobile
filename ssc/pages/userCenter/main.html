@@ -6,36 +6,59 @@
 	<title></title>
 	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 	<link href="../../css/mui.css" rel="stylesheet" />
+	<link href="../../fonts/iconfont.css" rel="stylesheet" />
+	<link href="../../css/userCenter/main.css" rel="stylesheet"  />
+	<link rel="stylesheet" type="text/css" href="../../css/icons-extra.css" />
 </head>
 
 <body>
-	<header class="mui-bar mui-bar-nav">
-		<h1 class="mui-title">个人中心</h1>
+	<header class="mui-bar-title">
+		<h1 class="mui-title-style">个人中心</h1>
 	</header>
 	<div class="mui-content">
-		<button id="login" type="button" class="mui-btn mui-btn-primary">登录</button>
+		<div>
+			<img src="../../images/user_center_background.jpg" width="100%" />
+			<div class="title-content">
+				<span class="mui-icon mui-icon-contact text-style-2"></span>
+				<span style="display: inline-block;width: 85%;">
+					<span id="userName">用户名</span>
+					<span id="amount" class="mui-pull-right">总金额：0.0</span>
+				</span>
+				<ul class="mui-table-view mui-grid-view mui-grid-9">
+					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" data-gourl="">
+						<a href="#title-contnet1" class="mui-control-item ">
+							<span class="mui-icon mui-icon-extra mui-icon-extra-prech"></span>
+							<div class="mui-media-body">安全设置</div>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" data-gourl="">
+						<a href="#title-contnet2" class="mui-control-item ">
+							<span class="mui-icon mui-icon-extra mui-icon-extra-class"></span>
+							<div class="mui-media-body">账号设置</div>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" data-gourl="newsList.html">
+						<a href="#title-contnet3" class="mui-control-item ">
+							<span class="mui-icon mui-icon-extra mui-icon-extra-classroom"><span class="mui-badge">5</span></span>
+							<div class="mui-media-body">公告</div>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" data-gourl="">
+						<a href="#title-contnet4" class="mui-control-item ">
+							<span class="mui-icon mui-icon-extra mui-icon-extra-dictionary"></span>
+							<div class="mui-media-body">其他</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
 	</div>
 	<script src="../../js/mui.js"></script>
 	<script src="../../js/mui.min.js"></script>
+	<script src="../../js/public.js"></script>
+	<script src="../../js/userCenter/main.js"></script>
 	<script type="text/javascript">
 		mui.init();
-		login.addEventListener("click", function(e) {
-			var aniShow = mui.os.plus ? "slide-in-right" : "zoom-fade-out";
-			mui.openWindow({
-				url: "../other/login.html",
-				id: "info",
-				styles: {
-					popGesture: "close",
-					statusbar: {
-						background: "#f7f7f7"
-					}
-				},
-				show: {
-					aniShow: aniShow,
-					duration: 300
-				}
-			});
-		})
 	</script>
 </body>
 

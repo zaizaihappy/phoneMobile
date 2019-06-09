@@ -772,7 +772,7 @@ p {
 	bottom: 0;
 	visibility: hidden;
 	box-sizing: content-box;
-	width: 70%;
+	width: 80%;
 	min-height: 100%;
 	background: #333;
 	-webkit-overflow-scrolling: touch
@@ -1274,8 +1274,8 @@ input[type=submit]:enabled:active {
 	padding-left: 10px;
 	border-bottom: 0;
 	background-color: #f7f7f7;
-	-webkit-box-shadow: 0 0 1px rgba(0, 0, 0, .85);
-	box-shadow: 0 0 1px rgba(255, 255, 255, 0.85);
+	/* -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, .85);
+	box-shadow: 0 0 1px rgba(0, 0, 0, .85); */
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden
 }
@@ -2968,7 +2968,7 @@ select:focus {
 
 .mui-segmented-control.mui-segmented-control-inverted.mui-segmented-control-vertical .mui-control-item,
 .mui-segmented-control.mui-segmented-control-inverted.mui-segmented-control-vertical .mui-control-item.mui-active {
-	border-bottom: 1px solid #c8c7cc
+	/* border-bottom: 1px solid #c8c7cc */
 }
 
 .mui-segmented-control.mui-segmented-control-inverted .mui-control-item {

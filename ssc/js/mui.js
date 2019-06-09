@@ -3168,7 +3168,7 @@ Function.prototype.bind = Function.prototype.bind || function(to) {
 		var nativeSetHeader = xhr.setRequestHeader;
 		var abortTimeout;
 
-		setHeader('X-Requested-With', 'XMLHttpRequest');
+		// setHeader('X-Requested-With', 'XMLHttpRequest');
 		setHeader('Accept', mime || '*/*');
 		if(!!(mime = settings.mimeType || mime)) {
 			if(mime.indexOf(',') > -1) {
@@ -3318,9 +3318,12 @@ Function.prototype.bind = Function.prototype.bind || function(to) {
 	var originAnchor = document.createElement('a');
 	originAnchor.href = window.location.href;
 	$.plusReady(function() {
+		console.log(111)
 		$.ajaxSettings = $.extend($.ajaxSettings, {
 			xhr: function(settings) {
+				console.log(2)
 				if (settings.crossDomain) { //强制使用plus跨域
+				console.log(3)
 					return new plus.net.XMLHttpRequest();
 				}
 				//仅在webview的url为远程文件，且ajax请求的资源不同源下使用plus.net.XMLHttpRequest
@@ -3330,12 +3333,15 @@ Function.prototype.bind = Function.prototype.bind || function(to) {
 					urlAnchor.href = urlAnchor.href;
 					settings.crossDomain = (originAnchor.protocol + '//' + originAnchor.host) !== (urlAnchor.protocol + '//' + urlAnchor.host);
 					if (settings.crossDomain) {
+						console.log(4)
 						return new plus.net.XMLHttpRequest();
 					}
 				}
 				if ($.os.ios && window.webkit && window.webkit.messageHandlers) { //wkwebview下同样使用5+ xhr
+					console.log(5)
                     return new plus.net.XMLHttpRequest();
                 }
+				console.log(66)
 				return new window.XMLHttpRequest();
 			}
 		});

@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>公告</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.css" rel="stylesheet" />
+		<link href="../../css/userCenter/newsList.css" rel="stylesheet"/>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+				<div id="listData" class="mui-scroll">
+					<ul class="mui-table-view mui-table-view-chevron">
+						<!--数据列表-->
+						<div v-for="(news,index) in newsListData" class="mui-card">
+							<div class="mui-card-content">
+								<div class="mui-card-content-inner">
+									<p>{{news.title}}</p>
+									<p style="color: #333;">{{news.content}}</p>
+								</div>
+							</div>
+							<template v-if="news.image != null">
+								<div class="mui-card-media">
+									<img class="image-news" src="../../images/user_center_background.jpg"/>
+								</div>
+							</template>
+							<div class="mui-card-footer">
+								<a class="mui-card-link" style="visibility: hidden;">Like</a>
+								<a class="mui-card-link">{{news.time}}</a>
+							</div>
+						</div>
+					</ul>
+				</div>
+			</div>
+			<button id="backBtn" class="back-btn" onclick="btnClick()">
+				<span class="mui-icon mui-icon-undo"></span>
+			</button>
+		</div>
+		<script src="../../js/mui.js"></script>
+		<script src="../../js/public.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+		<script src="../../js/userCenter/newsList.js"></script>
+	</body>
+
+</html>
