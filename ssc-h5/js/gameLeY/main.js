@@ -20,6 +20,10 @@ var app = new Vue({
 })
 
 mui('.mui-content').on('tap', '.mui-col-xs-4', function(e) {
-	var type = this.getAttribute("data-type");
-	goUrlPage("playerDetail.html");
+	if(isTrueLogin() != false){
+		var type = this.getAttribute("data-type");
+		goUrlPage("playerDetail.html");
+	}else{
+		noLoginPage()
+	}
 })

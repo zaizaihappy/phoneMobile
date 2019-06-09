@@ -12,23 +12,7 @@ function getUserInfo(){
 	if(userinfo){
 		return userinfo;
 	}else{
-		mui.toast("请登录后查看")
-		setTimeout(function(){
-			mui.openWindow({
-				url: "../other/login.html",
-				id: "info",
-				styles: {
-					popGesture: "close",
-					statusbar: {
-						background: "#f7f7f7"
-					}
-				},
-				show: {
-					aniShow: aniShow,
-					duration: 300
-				}
-			});
-		},1500)
+		noLoginPage();
 	}
 }
 
@@ -73,6 +57,14 @@ if(mui("#backBtn")[0] != null){
 	backBtn.addEventListener('tap', function() {
 		mui.back();
 	})
+}
+
+//没有登录跳转到登录界面
+function noLoginPage(){
+	mui.toast("请登录后查看")
+	setTimeout(function(){
+		goUrlPage("../other/login.html");
+	},1500)
 }
 
 /**
