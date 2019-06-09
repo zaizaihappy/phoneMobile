@@ -19,8 +19,8 @@
 					<div class="mui-scroll">
 						<template v-for="(player,index) in playerNameList">
 							<div>
-								<button style="width: 35%;border: 0px;">晚饭系列</button>
-								<button style="width: 62%;border: 0px;">——————————————</button>
+								<button style="width: 35%;border: 0px;" disabled>晚饭系列</button>
+								<button style="width: 62%;border: 0px;" disabled>——————————————</button>
 							</div>
 							<div align="center">
 								<template v-for="(play,index) in player.playerList">
@@ -52,59 +52,63 @@
 					<div class="mui-content mui-row mui-fullscreen" style="padding-top: 130px;">
 						<div class="mui-col-xs-3">
 							<div id="segmentedControls" class="mui-segmented-control mui-segmented-control-inverted mui-segmented-control-vertical">
-								<a class="mui-control-item mui-active" href="#content1">选项1</a>
-								<a class="mui-control-item" href="#content2">选项2</a>
+								<!-- 遍历界面左边菜单列表 -->
+								<template v-for="(playerClassBtn,index) in playerContentList">
+									<a v-if="index === 0" class="mui-control-item mui-active" :href="'#content'+index">{{playerClassBtn.playerNameclass}}</a>
+									<a v-if="index !== 0" class="mui-control-item" :href="'#content'+index">{{playerClassBtn.playerNameclass}}</a>
+								</template>
 							</div>
 						</div>
 						<div id="segmentedControlContents" class="mui-col-xs-9" style="border-left: 1px solid #c8c7cc;">
-							<div id="content1" class="mui-control-content mui-active">
+							
+							<template v-for="(playerClassBtn,index) in playerContentList">
+								<template v-if="index === 0">
+									<div :id="'content'+index" class="mui-control-content mui-active">
+										<ul class="mui-table-view">
+											<template v-for="(players,index1) in playerClassBtn.players">
+												<li class="mui-table-view-cell mui-collapse li-style-wanfa mui-active">
+													<a class="mui-navigate-right" href="#">{{players.xiazhuxiang}}</a>
+													<div class="mui-collapse-content">
+														<div v-for="(playersXia,index2) in players.xiazhuxiangclass" class="xiazhu-style">
+															<span>{{playersXia.className}}</span>
+															<span style="color: #CF2D28;">{{playersXia.peilv}}</span>
+														</div>
+													</div>
+												</li>
+											</template>
+										</ul>
+									</div>
+								</template>
+								<template v-else>
+									<div :id="'content'+index" class="mui-control-content">
+										<ul class="mui-table-view">
+											<template v-for="(players,index1) in playerClassBtn.players">
+												<li class="mui-table-view-cell mui-collapse li-style-wanfa mui-active">
+													<a class="mui-navigate-right" href="#">{{players.xiazhuxiang}}</a>
+													<div class="mui-collapse-content">
+														<div v-for="(playersXia,index2) in players.xiazhuxiangclass" class="xiazhu-style">
+															<span>{{playersXia.className}}</span>
+															<span style="color: #CF2D28;">{{playersXia.peilv}}</span>
+														</div>
+													</div>
+												</li>
+											</template>
+										</ul>
+									</div>
+								</template>
+							</template>
+							
+							<!-- <div id="content0" class="mui-control-content mui-active">
 								<ul class="mui-table-view">
 									<li class="mui-table-view-cell mui-collapse li-style-wanfa mui-active">
-										<a class="mui-navigate-right" href="#">表单</a>
+										<a class="mui-navigate-right" href="#">表单1</a>
 										<div class="mui-collapse-content">
-											<div class="xiazhu-style">总和大1.995</div>
-											<div class="xiazhu-style">总和大1.995</div>
-											<div class="xiazhu-style">总和大1.995</div>
-											<div class="xiazhu-style">总和大1.995</div>
-											<div class="xiazhu-style">总和大1.995</div>
-											<div class="xiazhu-style">总和大1.995</div>
-											<div class="xiazhu-style">总和大1.995</div>
-											<div class="xiazhu-style">总和大1.995</div>
-										</div>
-									</li>
-									<li class="mui-table-view-cell mui-collapse li-style-wanfa mui-active">
-										<a class="mui-navigate-right" href="#">表单</a>
-										<div class="mui-collapse-content">
-											<div class="xiazhu-style">总和大1.995</div>
-											<div class="xiazhu-style">总和大1.995</div>
-											<div class="xiazhu-style">总和大1.995</div>
-											<div class="xiazhu-style">总和大1.995</div>
-											<div class="xiazhu-style">总和大1.995</div>
-											<div class="xiazhu-style">总和大1.995</div>
-											<div class="xiazhu-style">总和大1.995</div>
-											<div class="xiazhu-style">总和大1.995</div>
-										</div>
-									</li>
-									<li class="mui-table-view-cell mui-collapse li-style-wanfa mui-active">
-										<a class="mui-navigate-right" href="#">表单</a>
-										<div class="mui-collapse-content">
-											<div class="xiazhu-style">总和大1.995</div>
-											<div class="xiazhu-style">总和大1.995</div>
-											<div class="xiazhu-style">总和大1.995</div>
-											<div class="xiazhu-style">总和大1.995</div>
-											<div class="xiazhu-style">总和大1.995</div>
-											<div class="xiazhu-style">总和大1.995</div>
 											<div class="xiazhu-style">总和大1.995</div>
 											<div class="xiazhu-style">总和大1.995</div>
 										</div>
 									</li>
 								</ul>
-							</div>
-							<div id="content2" class="mui-control-content">
-								<ul class="mui-table-view">
-
-								</ul>
-							</div>
+							</div> -->
 						</div>
 					</div>
 				</div>

@@ -1,5 +1,5 @@
 mui.init();
-// getUserInfo();
+getUserInfo();
 //禁止界面元素晃动
 document.getElementsByClassName("mui-content")[0].ontouchmove = function (e) {e.preventDefault();};	
 mui('.mui-grid-9').on('tap', '.mui-col-sm-3', function(e) {

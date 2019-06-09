@@ -1,9 +1,13 @@
 mui.init();
+//玩法菜单模拟数据
 var jsonPlayer = [{"playersName":"玩法类目","playerList":[{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"}]},{"playersName":"玩法类目","playerList":[{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"}]},{"playersName":"玩法类目","playerList":[{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"}]},{"playersName":"玩法类目","playerList":[{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"}]},{"playersName":"玩法类目","playerList":[{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"}]},{"playersName":"玩法类目","playerList":[{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"}]},{"playersName":"玩法类目","playerList":[{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"}]},{"playersName":"玩法类目","playerList":[{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"}]},{"playersName":"玩法类目","playerList":[{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"},{"player":"玩法玩法玩法"}]}];
+//列表界面数据
+var playerContentList = [{"playerNameclass":"玩法分类名称1","players":[{"xiazhuxiang":"下注项类目1-1","xiazhuxiangclass":[{"className":"总和大","peilv":"1.955","classId":"12"},{"className":"总和大","peilv":"1.955","classId":"12"},{"className":"总和大","peilv":"1.955","classId":"12"},{"className":"总和大","peilv":"1.955","classId":"12"},{"className":"总和大","peilv":"1.955","classId":"12"},{"className":"总和大","peilv":"1.955","classId":"12"},{"className":"总和大","peilv":"1.955","classId":"12"}]},{"xiazhuxiang":"下注项类目1-2","xiazhuxiangclass":[{"className":"总和大","peilv":"1.955","classId":"12"},{"className":"总和大","peilv":"1.955","classId":"12"},{"className":"总和大","peilv":"1.955","classId":"12"},{"className":"总和大","peilv":"1.955","classId":"12"},{"className":"总和大","peilv":"1.955","classId":"12"},{"className":"总和大","peilv":"1.955","classId":"12"},{"className":"总和大","peilv":"1.955","classId":"12"}]}]},{"playerNameclass":"玩法分类名称2","players":[{"xiazhuxiang":"下注项类目2-1","xiazhuxiangclass":[{"className":"总和大","peilv":"1.955","classId":"12"},{"className":"总和大","peilv":"1.955","classId":"12"},{"className":"总和大","peilv":"1.955","classId":"12"},{"className":"总和大","peilv":"1.955","classId":"12"},{"className":"总和大","peilv":"1.955","classId":"12"},{"className":"总和大","peilv":"1.955","classId":"12"},{"className":"总和大","peilv":"1.955","classId":"12"}]},{"xiazhuxiang":"下注项类目2-2","xiazhuxiangclass":[{"className":"总和大","peilv":"1.955","classId":"12"},{"className":"总和大","peilv":"1.955","classId":"12"},{"className":"总和大","peilv":"1.955","classId":"12"},{"className":"总和大","peilv":"1.955","classId":"12"},{"className":"总和大","peilv":"1.955","classId":"12"},{"className":"总和大","peilv":"1.955","classId":"12"},{"className":"总和大","peilv":"1.955","classId":"12"}]}]},{"playerNameclass":"玩法分类名称3","players":[{"xiazhuxiang":"下注项类目3-1","xiazhuxiangclass":[{"className":"总和大","peilv":"1.955","classId":"12"},{"className":"总和大","peilv":"1.955","classId":"12"},{"className":"总和大","peilv":"1.955","classId":"12"},{"className":"总和大","peilv":"1.955","classId":"12"},{"className":"总和大","peilv":"1.955","classId":"12"},{"className":"总和大","peilv":"1.955","classId":"12"},{"className":"总和大","peilv":"1.955","classId":"12"}]},{"xiazhuxiang":"下注项类目3-2","xiazhuxiangclass":[{"className":"总和大","peilv":"1.955","classId":"12"},{"className":"总和大","peilv":"1.955","classId":"12"},{"className":"总和大","peilv":"1.955","classId":"12"},{"className":"总和大","peilv":"1.955","classId":"12"},{"className":"总和大","peilv":"1.955","classId":"12"},{"className":"总和大","peilv":"1.955","classId":"12"},{"className":"总和大","peilv":"1.955","classId":"12"}]}]}];
 var app = new Vue({
 	el: '#offCanvasWrapper',
 	data:{
-		playerNameList:[]
+		playerNameList:[],
+		playerContentList:[]
 	},
 	updated:function(){
 		
@@ -14,6 +18,7 @@ var app = new Vue({
 	created() {
 		var _this = this;
 		_this.playerNameList = jsonPlayer
+		_this.playerContentList = playerContentList
 	},
 	methods: {
 		
@@ -47,8 +52,8 @@ mui('#segmentedControlContents').on('tap', '.xiazhu-style', function(e) {
 	
 	if(this.className.indexOf("active-xiazhu-style") > 0){
 		this.className = "xiazhu-style";
-		var remove = this.innerHTML.split("<span");
-		this.innerHTML = remove[0]
+		console.log()
+		this.children.pop;
 	}else{
 		this.className += " active-xiazhu-style";
 		this.innerHTML += '<span class="mui-icon mui-icon-checkmarkempty icon-dui-style"></span>';
