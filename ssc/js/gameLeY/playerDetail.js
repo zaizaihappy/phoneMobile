@@ -52,8 +52,7 @@ mui('#segmentedControlContents').on('tap', '.xiazhu-style', function(e) {
 	
 	if(this.className.indexOf("active-xiazhu-style") > 0){
 		this.className = "xiazhu-style";
-		console.log()
-		this.children.pop;
+		this.removeChild(this.children[this.children.length-1]);
 	}else{
 		this.className += " active-xiazhu-style";
 		this.innerHTML += '<span class="mui-icon mui-icon-checkmarkempty icon-dui-style"></span>';
