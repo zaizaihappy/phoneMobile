@@ -1,4 +1,4 @@
-var BASE_URL = "http://192.168.31.174:8080/hwgame/";
+var BASE_URL = "http://localhost:8080/hwgame/";
 //刘海屏顶部适配
 mui.plusReady(function() {
 	plus.navigator.setStatusBarBackground("#000000");
@@ -8,7 +8,7 @@ mui.plusReady(function() {
 var aniShow = mui.os.plus ? "slide-in-right" : "zoom-fade-out";
 //如若没登录自动跳转登录界面
 function getUserInfo(){
-	var userinfo = sessionStorage.getItem("userInfo");
+	var userinfo = localStorage.getItem("userInfo");
 	if(userinfo){
 		return userinfo;
 	}else{
@@ -18,7 +18,7 @@ function getUserInfo(){
 
 //判断当前用户是否登录
 function isTrueLogin(){
-	var userinfo = sessionStorage.getItem("userInfo");
+	var userinfo = localStorage.getItem("userInfo");
 	if(userinfo){
 		return true;
 	}else{

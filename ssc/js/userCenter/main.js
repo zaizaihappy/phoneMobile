@@ -1,13 +1,12 @@
 mui.init();
-
 /**
  * APP独有
  * 登录界面成功以后存储的数据无法跨webview进行存储
  * 故：登录界面(login.html)登录成功以后，调用父界面的customEvent并将用户信息传递到此方法在进行存储
  */
-window.addEventListener('customEvent', function(e){//执行刷新
-	sessionStorage.setItem("userInfo",JSON.stringify(e.detail));
-});
+// window.addEventListener('customEvent', function(e){//执行刷新
+// 	localStorage.setItem("userInfo",JSON.stringify(e.detail));
+// });
 
 //禁止界面元素晃动
 document.getElementsByClassName("mui-content")[0].ontouchmove = function (e) {e.preventDefault();};	

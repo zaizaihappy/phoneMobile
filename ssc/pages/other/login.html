@@ -84,14 +84,13 @@
 							username:'admin',
 							amount:20.00
 						}
-						sessionStorage.setItem("userInfos",JSON.stringify(userInfo));
-						
+						localStorage.setItem("userInfo",JSON.stringify(userInfo));
 						/**
 						 * APP独有
 						 * 获取父级界面并调用父级界面的customEvent方法,将用户信息传递过去
 						 */
-						var parentPage = plus.webview.currentWebview().opener();
-						mui.fire(parentPage, 'customEvent', userInfo);
+						// var userCenterPage = plus.webview.getWebviewById("pages/userCenter/main.html");
+						// console.log("parentPage："+JSON.stringify(userCenterPage))
 						
 						mui('#errorMsg')[0].className = "success-msg-style";
 						mui('#errorMsg')[0].innerHTML = "欢迎您的到来！";
