@@ -19,12 +19,12 @@
 					<div class="mui-scroll">
 						<template v-for="(player,index) in playerNameList">
 							<div>
-								<button style="width: 35%;border: 0px;" disabled>晚饭系列</button>
-								<button style="width: 62%;border: 0px;" disabled>——————————————</button>
+								<button style="width: 30%;border: 0px;" disabled>{{player.typeName}}</button>
+								<button style="width: 68%;border: 0px;" disabled>——————————————</button>
 							</div>
 							<div align="center">
-								<template v-for="(play,index) in player.playerList">
-									<button class="btn-kuang-style">{{play.player}}</button>
+								<template v-for="(play,index) in player.gameInfoVOList">
+									<button class="btn-kuang-style">{{play.gameName}}</button>
 								</template>
 							</div>
 						</template>
@@ -97,18 +97,6 @@
 									</div>
 								</template>
 							</template>
-							
-							<!-- <div id="content0" class="mui-control-content mui-active">
-								<ul class="mui-table-view">
-									<li class="mui-table-view-cell mui-collapse li-style-wanfa mui-active">
-										<a class="mui-navigate-right" href="#">表单1</a>
-										<div class="mui-collapse-content">
-											<div class="xiazhu-style">总和大1.995</div>
-											<div class="xiazhu-style">总和大1.995</div>
-										</div>
-									</li>
-								</ul>
-							</div> -->
 						</div>
 					</div>
 				</div>
@@ -117,6 +105,7 @@
 			</div>
 		</div>
 		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/public.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 		<script src="../../js/gameLeY/playerDetail.js"></script>
 	</body>

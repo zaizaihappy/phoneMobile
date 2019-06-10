@@ -17,11 +17,17 @@ var app = new Vue({
 	},
 	created() {
 		var _this = this;
-		_this.playerNameList = jsonPlayer
+		this.getApiClassListData();//玩法菜单列表
 		_this.playerContentList = playerContentList
 	},
 	methods: {
-		
+		getApiClassListData:function() {//获取所有玩法数据
+			mui.post(BASE_URL + 'play/game/gameTypeList',function(data){
+				if(data.success){
+					app.playerNameList = data.module;
+				}
+			})
+		}
 	}
 })
 //侧滑容器父节点
