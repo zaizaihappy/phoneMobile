@@ -7,142 +7,81 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../../css/mui.css" rel="stylesheet" />
 		<link rel="stylesheet" media="screen" href="../../css/other/style.css">
-        <link rel="stylesheet" type="text/css" href="../../css/other/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/other/reset.css" />
 	</head>
 
 	<body>
-		<div class="mui-content" >
+		<div class="mui-content">
 			<div class="login">
-				<div class="login-top">
-					登录<a href="#" style="float: right;margin-right: 10px;font-size: 15px;color: #a5a0a0;">马上注册</a>
-				</div>
-				<div class="login-center clearfix">
-					<div class="login-center-img"><img src="../../images/name.png"/></div>
-					<div class="login-center-input">
-						<input id="username" type="text" name="" value="" placeholder="请输入您的用户名" />
-						<div class="login-center-input-text">用户名</div>
+				<span id="loginHtml">
+					<div class="login-top">
+						登录<a href="javascript:qiehuanHtml('registerHtml','loginHtml')" class="btn-click-style">马上注册</a>
 					</div>
-				</div>
-				<div class="login-center clearfix">
-					<div class="login-center-img"><img src="../../images/password.png"/></div>
-					<div class="login-center-input">
-						<input id="password" type="password" name=""value="" placeholder="请输入您的密码" />
-						<div class="login-center-input-text">密码</div>
-						<span id="errorMsg" class="error-msg-style"></span>
+					<div class="login-center clearfix">
+						<div class="login-center-img"><img src="../../images/name.png" /></div>
+						<div class="login-center-input">
+							<input id="username" type="text" name="" value="" placeholder="请输入您的手机号" />
+							<div class="login-center-input-text">手机号</div>
+						</div>
 					</div>
-				</div>
-				<div class="login-button">
-					登陆
-				</div>
+					<div class="login-center clearfix">
+						<div class="login-center-img"><img src="../../images/password.png" /></div>
+						<div class="login-center-input">
+							<input id="password" type="password" name="" value="" placeholder="请输入您的密码" />
+							<div class="login-center-input-text">密码</div>
+							<span id="errorMsg" class="error-msg-style"></span>
+						</div>
+					</div>
+					<div id="loginBtn" class="login-button">
+						登陆
+					</div>
+				</span>
+				<span id="registerHtml" style="display: none;">
+					<div class="login-top">
+						注册<a href="javascript:qiehuanHtml('loginHtml','registerHtml')" class="btn-click-style">去登录</a>
+					</div>
+					<div class="login-center clearfix">
+						<div class="login-center-img"><img src="../../images/name.png" /></div>
+						<div class="login-center-input">
+							<input id="memberMobile" type="text" name="" value="14768776836" placeholder="注册的手机号" style="width: 70%;">
+							<div class="login-center-input-text">注册手机号</div>
+							<button id="getPhoneCodeMsg" style="padding: 5px;width: 23%;">验证码</button>
+						</div>
+					</div>
+					<div class="login-center clearfix">
+						<div class="login-center-img"><img src="../../images/password.png" /></div>
+						<div class="login-center-input">
+							<input id="codeMsg" type="text" name="" value="" placeholder="验证码" />
+							<div class="login-center-input-text">手机验证码</div>
+						</div>
+					</div>
+					<div class="login-center clearfix">
+						<div class="login-center-img"><img src="../../images/password.png" /></div>
+						<div class="login-center-input">
+							<input id="loginPass" type="password" name="" value="" placeholder="注册密码" />
+							<div class="login-center-input-text">密码(由字母、数字组成且长度>6)</div>
+						</div>
+					</div>
+					<div class="login-center clearfix">
+						<div class="login-center-img"><img src="../../images/password.png" /></div>
+						<div class="login-center-input">
+							<input id="loginPass2" type="password" name="" value="" placeholder="确认密码" />
+							<div class="login-center-input-text">确认密码</div>
+							<span id="errorMsg2" class="error-msg-style"></span>
+						</div>
+					</div>
+					<div id="registerBtn" class="login-button">
+						注册
+					</div>
+				</span>
 			</div>
 			<div class="sk-rotating-plane"></div>
 		</div>
 		<script src="../../js/mui.js"></script>
+		<script src="../../js/utils.js"></script>
 		<script src="../../js/other/particles.min.js"></script>
 		<script src="../../js/other/app.js"></script>
-		<script type="text/javascript">
-			mui.init();
-			function hasClass(elem, cls) {
-			  cls = cls || '';
-			  if (cls.replace(/\s/g, '').length == 0) return false; //当cls没有参数时，返回false
-			  return new RegExp(' ' + cls + ' ').test(' ' + elem.className + ' ');
-			}
-			 
-			function addClass(ele, cls) {
-			  if (!hasClass(ele, cls)) {
-				ele.className = ele.className == '' ? cls : ele.className + ' ' + cls;
-			  }
-			}
-			 
-			function removeClass(ele, cls) {
-			  if (hasClass(ele, cls)) {
-				var newClass = ' ' + ele.className.replace(/[\t\r\n]/g, '') + ' ';
-				while (newClass.indexOf(' ' + cls + ' ') >= 0) {
-				  newClass = newClass.replace(' ' + cls + ' ', ' ');
-				}
-				ele.className = newClass.replace(/^\s+|\s+$/g, '');
-			  }
-			}
-				document.querySelector(".login-button").onclick = function(){
-				var username  = mui('#username')[0].value;
-				var password  = mui('#password')[0].value;
-				if(username == "" || password == ""){
-					mui('#errorMsg')[0].innerHTML = "用户名或密码不能为空";
-				}else{
-					mui('#errorMsg')[0].innerHTML = "";
-					addClass(document.querySelector(".login"), "active")
-					setTimeout(function(){
-						addClass(document.querySelector(".sk-rotating-plane"), "active")
-						document.querySelector(".login").style.display = "none"
-					},800)
-					
-					setTimeout(function(){
-						removeClass(document.querySelector(".login"), "active")
-						removeClass(document.querySelector(".sk-rotating-plane"), "active")
-						document.querySelector(".login").style.display = "block"
-						var userInfo = {
-							username:'admin',
-							amount:20.00
-						}
-						sessionStorage.setItem("userInfo",userInfo)
-						mui('#errorMsg')[0].className = "success-msg-style";
-						mui('#errorMsg')[0].innerHTML = "欢迎您的到来！";
-						mui.toast('欢迎您的到来');
-						setTimeout(function(){
-							var aniShow = mui.os.plus ? "slide-in-right" : "zoom-fade-out";
-							mui.openWindow({
-								url: "../userCenter/main.html",
-								id: "userCenterMain",
-								styles: {
-									popGesture: "close",
-									statusbar: {
-										background: "#f7f7f7"
-									}
-								},
-								show: {
-									aniShow: aniShow,
-									duration: 300
-								}
-							});
-						},1000)
-					},2000)
-					// mui.post("",{username:username,password:password},function(data){
-					// 	if(data.success){
-					// 		removeClass(document.querySelector(".login"), "active")
-					// 		removeClass(document.querySelector(".sk-rotating-plane"), "active")
-					// 		document.querySelector(".login").style.display = "block"
-					// 		var userInfo = {
-					// 			username:'admin',
-					// 			amount:20.00
-					// 		}
-					// 		sessionStorage.setItem("userInfo",userInfo)
-					// 		mui('#errorMsg')[0].className = "success-msg-style";
-					// 		mui('#errorMsg')[0].innerHTML = "欢迎您的到来！";
-					// 		mui.toast('欢迎您的到来');
-					// 		setTimeout(function(){
-					// 			var aniShow = mui.os.plus ? "slide-in-right" : "zoom-fade-out";
-					// 			mui.openWindow({
-					// 				url: "../userCenter/main.html",
-					// 				id: "userCenterMain",
-					// 				styles: {
-					// 					popGesture: "close",
-					// 					statusbar: {
-					// 						background: "#f7f7f7"
-					// 					}
-					// 				},
-					// 				show: {
-					// 					aniShow: aniShow,
-					// 					duration: 300
-					// 				}
-					// 			});
-					// 		},1000)
-					// // 	}else{
-					// 		mui('#errorMsg')[0].innerHTML = data.errorMsg;
-					// 	}
-					// })
-				}
-			}
-		</script>
+		<script src="../../js/other/login.js"></script>
 	</body>
 
 </html>
