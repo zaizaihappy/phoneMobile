@@ -26,6 +26,59 @@ function qiehuanHtml(showHtml,hideHtml){
 	document.getElementById(hideHtml).style.display = "none";
 }
 
+var oBtn = document.getElementById('btn');
+var oW,oLeft;
+var oSlider=document.getElementById('slider');
+var oTrack=document.getElementById('track');
+var oIcon=document.getElementById('icon');
+var oSpinner=document.getElementById('spinner');
+var flag=1;
+
+oBtn.addEventListener('touchstart',function(e){
+	console.log("touchstart")
+	if(flag==1){
+		console.log(e);
+		var touches = e.touches[0];
+		oW = touches.clientX - oBtn.offsetLeft;
+		oBtn.className="button";
+		oTrack.className="track";
+	}
+	
+},false);
+
+oBtn.addEventListener("touchmove", function(e) {
+	console.log("touchmove")
+	if(flag==1){
+		var touches = e.touches[0];
+		oLeft = touches.clientX - oW;
+		if(oLeft < 0) {
+			oLeft = 0;
+		}else if(oLeft > 200) {
+			oLeft = (200);
+		}
+		oBtn.style.left = oLeft + "px";
+		oTrack.style.width=oLeft+ 'px';			
+	}
+	
+},false);
+
+oBtn.addEventListener("touchend",function() {
+	console.log("touchend")
+	if(oLeft>=(oSlider.clientWidth-oBtn.clientWidth)){
+		oBtn.style.left = (document.documentElement.clientWidth - oBtn.offsetWidth-30);
+		oTrack.style.width= (document.documentElement.clientWidth - oBtn.offsetWidth-30);
+		oIcon.style.display='none';
+		oSpinner.style.display='block';				
+		flag=0;			
+	}else{
+		oBtn.style.left = 0;
+		oTrack.style.width= 0;
+	}
+	oBtn.className="button-on";
+	oTrack.className="track-on";       
+},false);
+
+
 //登录按钮
 loginBtn.addEventListener('tap', function() {
 	var username = mui('#username')[0].value;
@@ -36,6 +89,8 @@ loginBtn.addEventListener('tap', function() {
 		mui('#errorMsg')[0].innerHTML = "手机号格式输入错误";
 	}else if(password.length < 6){
 		mui('#errorMsg')[0].innerHTML = "密码不能低于6位";
+	}else if(flag != 0){
+		mui('#errorMsg')[0].innerHTML = "请向右滑动完成验证";
 	}else{
 		mui('#errorMsg')[0].innerHTML = "";
 		addClass(document.querySelector(".login"), "active")

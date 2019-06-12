@@ -8,6 +8,7 @@
 		<link href="../../css/mui.css" rel="stylesheet" />
 		<link rel="stylesheet" media="screen" href="../../css/other/style.css">
 		<link rel="stylesheet" type="text/css" href="../../css/other/reset.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/other/slider.css" />
 	</head>
 
 	<body>
@@ -29,7 +30,21 @@
 						<div class="login-center-input">
 							<input id="password" type="password" name="" value="" placeholder="请输入您的密码" />
 							<div class="login-center-input-text">密码</div>
-							<span id="errorMsg" class="error-msg-style"></span>
+						</div>
+					</div>
+					<div class="login-center clearfix">
+						<div class="stage">
+							<div class="slider" id="slider">
+								<div class="label">向右滑动验证</div>
+								<div class="track" id="track">
+									<div class="bg-green"></div>
+								</div>
+								<div class="button" id="btn">
+									<div class="icon" id="icon"></div>
+									<div class="spinner" id="spinner"></div>
+								</div>
+								<span id="errorMsg" class="error-msg-style"></span>
+							</div>
 						</div>
 					</div>
 					<div id="loginBtn" class="login-button">
