@@ -32,7 +32,7 @@ loginBtn.addEventListener('tap', function() {
 	var password = mui('#password')[0].value;
 	if(username == "" || password == ""){
 		mui('#errorMsg')[0].innerHTML = "手机号或密码不能为空";
-	}else if(!isPhoneAvailable(password)){
+	}else if(!isPhoneAvailable(username)){
 		mui('#errorMsg')[0].innerHTML = "手机号格式输入错误";
 	}else if(password.length < 6){
 		mui('#errorMsg')[0].innerHTML = "密码不能低于6位";
@@ -44,70 +44,39 @@ loginBtn.addEventListener('tap', function() {
 			document.querySelector(".login").style.display = "none"
 		},800)
 		
-		setTimeout(function(){
-			removeClass(document.querySelector(".login"), "active")
-			removeClass(document.querySelector(".sk-rotating-plane"), "active")
-			document.querySelector(".login").style.display = "block"
-			var userInfo = {
-				username:'admin',
-				amount:20.00
-			}
-			sessionStorage.setItem("userInfo",userInfo)
-			mui('#errorMsg')[0].className = "success-msg-style";
-			mui('#errorMsg')[0].innerHTML = "欢迎您的到来！";
-			mui.toast('欢迎您的到来');
-			setTimeout(function(){
-				var aniShow = mui.os.plus ? "slide-in-right" : "zoom-fade-out";
-				mui.openWindow({
-					url: "../userCenter/main.html",
-					id: "userCenterMain",
-					styles: {
-						popGesture: "close",
-						statusbar: {
-							background: "#f7f7f7"
+		mui.post(BASE_URL + "/player/info/login",{memberMobile:username,loginPass:password},function(data){
+			if(data.success){
+				setTimeout(function(){
+					removeClass(document.querySelector(".login"), "active")
+					removeClass(document.querySelector(".sk-rotating-plane"), "active")
+					document.querySelector(".login").style.display = "block"
+				},1000)
+				
+				sessionStorage.setItem("userInfo",JSON.stringify(data.module))
+				mui('#errorMsg')[0].className = "success-msg-style";
+				mui('#errorMsg')[0].innerHTML = "欢迎您的到来！";
+				mui.toast('欢迎您的到来');
+				setTimeout(function(){
+					var aniShow = mui.os.plus ? "slide-in-right" : "zoom-fade-out";
+					mui.openWindow({
+						url: "../userCenter/main.html",
+						id: "userCenterMain",
+						styles: {
+							popGesture: "close",
+							statusbar: {
+								background: "#f7f7f7"
+							}
+						},
+						show: {
+							aniShow: aniShow,
+							duration: 300
 						}
-					},
-					show: {
-						aniShow: aniShow,
-						duration: 300
-					}
-				});
-			},1000)
-		},2000)
-		// mui.post("",{username:username,password:password},function(data){
-		// 	if(data.success){
-		// 		removeClass(document.querySelector(".login"), "active")
-		// 		removeClass(document.querySelector(".sk-rotating-plane"), "active")
-		// 		document.querySelector(".login").style.display = "block"
-		// 		var userInfo = {
-		// 			username:'admin',
-		// 			amount:20.00
-		// 		}
-		// 		sessionStorage.setItem("userInfo",userInfo)
-		// 		mui('#errorMsg')[0].className = "success-msg-style";
-		// 		mui('#errorMsg')[0].innerHTML = "欢迎您的到来！";
-		// 		mui.toast('欢迎您的到来');
-		// 		setTimeout(function(){
-		// 			var aniShow = mui.os.plus ? "slide-in-right" : "zoom-fade-out";
-		// 			mui.openWindow({
-		// 				url: "../userCenter/main.html",
-		// 				id: "userCenterMain",
-		// 				styles: {
-		// 					popGesture: "close",
-		// 					statusbar: {
-		// 						background: "#f7f7f7"
-		// 					}
-		// 				},
-		// 				show: {
-		// 					aniShow: aniShow,
-		// 					duration: 300
-		// 				}
-		// 			});
-		// 		},1000)
-		// // 	}else{
-		// 		mui('#errorMsg')[0].innerHTML = data.errorMsg;
-		// 	}
-		// })
+					});
+				},1000)
+			}else{
+				mui('#errorMsg')[0].innerHTML = data.errorMsg;
+			}
+		})
 	}
 })
 
@@ -190,10 +159,15 @@ registerBtn.addEventListener('tap', function() {
 				mui('#errorMsg')[0].innerHTML = "恭喜您已成功注册，请登录~";
 				mui.toast('恭喜您已成功注册');
 				
+				setTimeout(function(){
+					removeClass(document.querySelector(".login"), "active")
+					removeClass(document.querySelector(".sk-rotating-plane"), "active")
+					document.querySelector(".login").style.display = "block"
+				},1000)
 				//关闭动画
-				removeClass(document.querySelector(".login"), "active")
-				removeClass(document.querySelector(".sk-rotating-plane"), "active")
-				document.querySelector(".login").style.display = "block"
+				// removeClass(document.querySelector(".login"), "active")
+				// removeClass(document.querySelector(".sk-rotating-plane"), "active")
+				// document.querySelector(".login").style.display = "block"
 				
 				//手机号同步到登录界面显示
 				mui('#username')[0].value = memberMobile;
